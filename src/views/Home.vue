@@ -13,23 +13,56 @@
 			</div>
 		</div>
 		<div class="contact">
-			<h1>Get In Touch</h1>
+			<h1 class="text-center">Get In Touch</h1>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6 col-lg-4 mt-3" v-for="data of ContactData" :key="data.name">
+					<button class="btn btn-dark btn-block btn-lg">
+						<i :class="data.className"></i> {{ data.name }}
+					</button>
+				</div>
+				<div class="col-12 col-md-12 col-lg-6 mt-3">
+					<iframe
+						height="315"
+						src="https://www.youtube.com/embed/69bxzTW6s3c"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				</div>
+				<div class="col-12 col-md-12 col-lg-6 mt-3">
+					<iframe
+						height="315"
+						src="https://www.youtube.com/embed/7IqpuMFYyCo"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import Contact from "../assets/data/contact.json";
 export default {
-	name: "Home"
+	name: "Home",
+	data: () => ({
+		ContactData: Contact
+	})
 };
 </script>
 
 <style lang="scss" scoped>
 .home {
 	padding-top: 40px;
+	padding-bottom: 50px;
 }
 
 .intro {
+	padding-bottom: 80px;
 	.desc {
 		font-size: 20px;
 	}

@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Github",
+		"className": "bi bi-github"
+	},
+	{
+		"name": "Instagram",
+		"className": "bi bi-instagram"
+	},
+	{
+		"name": "Email",
+		"className": "bi bi-envelope-fill"
+	}
+]
