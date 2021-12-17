@@ -5,9 +5,9 @@
 			<div class="row">
 				<div class="col-12 col-md-10 col-lg-8">
 					<p class="desc">
-						Hi! I am Dimas Andhika, I am a 15 year old student who is interested and has a hobby in
-						programming. All my repos on github are just an implementations of what I've learned so
-						far.
+						Hi! I am Dimas Andhika, I am a 15 year old high school student who is interested and has
+						a hobby in programming. Highly motivated to continue education and work in the field of
+						software development. Check my project of what I've learned so far on github!
 					</p>
 				</div>
 			</div>
@@ -73,6 +73,7 @@ export default {
 		padding-top: 30px;
 	}
 	.intro {
+		padding-bottom: 50px;
 		h1 {
 			font-size: 36px;
 		}
