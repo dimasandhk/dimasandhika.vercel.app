@@ -12,9 +12,20 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav ml-auto">
-					<router-link class="nav-link" to="/">Home</router-link>
-					<a class="nav-link" href="#">Github</a>
-					<a class="nav-link" href="#">Project</a>
+					<router-link
+						class="nav-link"
+						data-toggle="collapse"
+						data-target=".navbar-collapse.show"
+						to="/"
+						>Home</router-link
+					>
+					<router-link
+						class="nav-link"
+						data-toggle="collapse"
+						data-target=".navbar-collapse.show"
+						to="/project"
+						>Project</router-link
+					>
 				</div>
 			</div>
 		</div>

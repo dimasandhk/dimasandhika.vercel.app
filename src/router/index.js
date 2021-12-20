@@ -6,7 +6,17 @@ const routes = [
 		path: "/",
 		name: "Home",
 		component: Home
+	},
+	{
+		path: "/project",
+		name: "Github Projects",
+		component: () => import("../views/Project.vue")
 	}
+	// {
+	// 	path: "/github",
+	// 	name: "Github Profile",
+	// 	component: () => import("../views/Github.vue")
+	// }
 	// {
 	//   path: '/about',
 	//   name: 'About',

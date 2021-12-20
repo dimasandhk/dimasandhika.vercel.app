@@ -16,9 +16,9 @@
 			<h1 class="text-center">Get In Touch</h1>
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 mt-3" v-for="data of ContactData" :key="data.name">
-					<button class="btn btn-dark btn-block btn-lg">
+					<a class="btn btn-dark btn-block btn-lg">
 						<i :class="data.className"></i> {{ data.name }}
-					</button>
+					</a>
 				</div>
 				<div class="col-12 col-md-12 col-lg-6 mt-3">
 					<iframe
