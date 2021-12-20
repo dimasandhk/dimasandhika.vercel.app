@@ -56,9 +56,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/var.scss";
 .home {
 	padding-top: 40px;
 	padding-bottom: 50px;
+}
+
+.btn {
+	@include styledButton();
 }
 
 .intro {

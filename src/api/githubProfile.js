@@ -17,8 +17,11 @@ export default class {
 
 	static async getReposByPage(page) {
 		const { page: maxPage } = await this.getProfile();
+		const regex = /[0-9]/gi;
+
 		try {
-			if (parseInt(page) > maxPage) throw { error: "No Result Found" };
+			if (parseInt(page) > maxPage || parseInt(page) <= 0 || !regex.test(page))
+				throw { error: "No Result Found" };
 
 			const response = await axios.get(`${endpoint}/repos?page=${page}`);
 			return await response.data;

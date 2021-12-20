@@ -12,3 +12,13 @@ body {
 iframe {
 	width: 100%;
 }
+
+#nprogress {
+	.spinner-icon {
+		display: none;
+	}
+
+	.bar {
+		background: white !important;
+	}
+}
