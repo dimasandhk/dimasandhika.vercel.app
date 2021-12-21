@@ -2,11 +2,15 @@ $main: #1affd6;
 $bg: #181818;
 $border: #1f1f1f;
 $contrast: #121212;
+$lighterBorder: lighten(
+	$color: $border,
+	$amount: 10%
+);
 
-@mixin styledButton {
-	background-color: $contrast !important;
-	border: 1px solid $border !important;
+@mixin styledButton($customBG: $contrast) {
+	background-color: $customBG !important;
+	border: 1px solid $lighterBorder !important;
 	&:hover {
-		border: 1px solid $border;
+		border: 1px solid $lighterBorder;
 	}
 }

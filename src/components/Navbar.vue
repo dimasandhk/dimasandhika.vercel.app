@@ -23,7 +23,7 @@
 						class="nav-link"
 						data-toggle="collapse"
 						data-target=".navbar-collapse.show"
-						to="/project"
+						to="/project?page=1"
 						>Project</router-link
 					>
 				</div>
