@@ -4,11 +4,7 @@
 			<h1>Dimas Andhika</h1>
 			<div class="row">
 				<div class="col-12 col-md-10 col-lg-8">
-					<p class="desc">
-						Hi! I am Dimas Andhika, I am a 15 year old high school student who is interested and has
-						a hobby in programming. Highly motivated to continue education and work in the field of
-						software development. Check my project of what I've learned so far on github!
-					</p>
+					<p class="desc">{{ Desc }}</p>
 				</div>
 			</div>
 		</div>
@@ -20,26 +16,7 @@
 						<i :class="data.className"></i> {{ data.name }}
 					</a>
 				</div>
-				<div class="col-12 col-md-12 col-lg-6 mt-3">
-					<iframe
-						height="315"
-						src="https://www.youtube.com/embed/69bxzTW6s3c"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
-				</div>
-				<div class="col-12 col-md-12 col-lg-6 mt-3">
-					<iframe
-						height="315"
-						src="https://www.youtube.com/embed/qM99d1c8JyA"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
-				</div>
+				<Iframe />
 			</div>
 		</div>
 	</div>
@@ -47,10 +24,15 @@
 
 <script>
 import Contact from "../assets/data/contact.json";
+import DescJson from "../assets/data/desc.json";
+import Iframe from "../components/YoutubeIframe.vue";
+
 export default {
 	name: "Home",
+	components: { Iframe },
 	data: () => ({
-		ContactData: Contact
+		ContactData: Contact,
+		Desc: DescJson.desc
 	})
 };
 </script>
