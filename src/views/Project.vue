@@ -7,11 +7,16 @@
 					type="button"
 					class="btn btn-dark shadow-none"
 					:disabled="noPrevious"
-					@click="previousPage"
+					@click="changePage('prev')"
 				>
 					Prev
 				</button>
-				<button type="button" class="btn btn-dark shadow-none" :disabled="noNext" @click="nextPage">
+				<button
+					type="button"
+					class="btn btn-dark shadow-none"
+					:disabled="noNext"
+					@click="changePage('next')"
+				>
 					Next
 				</button>
 			</div>
@@ -60,16 +65,10 @@ export default {
 		}
 	},
 	methods: {
-		previousPage() {
+		changePage(command) {
 			const { page } = this.$route.query;
 			let numPage = parseInt(page);
-			numPage--;
-			this.$router.push(`${this.$route.path}?page=${numPage}`);
-		},
-		nextPage() {
-			const { page } = this.$route.query;
-			let numPage = parseInt(page);
-			numPage++;
+			command == "prev" ? numPage-- : numPage++;
 			this.$router.push(`${this.$route.path}?page=${numPage}`);
 		}
 	},
