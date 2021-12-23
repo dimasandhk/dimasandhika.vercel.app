@@ -2,9 +2,18 @@
 	<div class="github container">
 		<div class="project">
 			<h1>Github Project</h1>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-dark shadow-none" :disabled="true">Prev</button>
-				<button type="button" class="btn btn-dark shadow-none">Next</button>
+			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error">
+				<button
+					type="button"
+					class="btn btn-dark shadow-none"
+					:disabled="noPrevious"
+					@click="previousPage"
+				>
+					Prev
+				</button>
+				<button type="button" class="btn btn-dark shadow-none" :disabled="noNext" @click="nextPage">
+					Next
+				</button>
 			</div>
 			<h3 v-if="repos.error" class="mt-3">{{ repos.error }}</h3>
 			<div class="row justify-content-center" v-else>
@@ -18,6 +27,7 @@
 <script>
 import github from "../api/githubProfile";
 import progress from "nprogress";
+
 import ProjectCard from "../components/ProjectCard.vue";
 import Loading from "../components/Loading.vue";
 
@@ -25,16 +35,56 @@ export default {
 	components: { Loading, ProjectCard },
 	data: () => ({
 		repos: [],
-		totalPage: 0
+		totalPage: 0,
+		maxPage: 0
 	}),
 	async mounted() {
 		if (!this.$route.query.page) this.$router.push(`${this.$route.path}?page=1`);
-		sessionStorage.setItem("page", this.$route.query.page);
 
 		progress.start();
 		const repos = await github.getReposByPage(this.$route.query.page);
+		const { page: maxPage } = await github.getProfile();
+
+		this.maxPage = maxPage;
 		this.repos = repos;
 		progress.done();
+	},
+	computed: {
+		noPrevious() {
+			if (parseInt(this.$route.query.page) == 1) return true;
+			return false;
+		},
+		noNext() {
+			if (parseInt(this.$route.query.page) == this.maxPage) return true;
+			return false;
+		}
+	},
+	methods: {
+		previousPage() {
+			const { page } = this.$route.query;
+			let numPage = parseInt(page);
+			numPage--;
+			this.$router.push(`${this.$route.path}?page=${numPage}`);
+		},
+		nextPage() {
+			const { page } = this.$route.query;
+			let numPage = parseInt(page);
+			numPage++;
+			this.$router.push(`${this.$route.path}?page=${numPage}`);
+		}
+	},
+	watch: {
+		$route: {
+			async handler({ query }) {
+				progress.start();
+				const repos = await github.getReposByPage(query.page);
+				const { page: maxPage } = await github.getProfile();
+
+				this.maxPage = maxPage;
+				this.repos = repos;
+				progress.done();
+			}
+		}
 	}
 };
 </script>
