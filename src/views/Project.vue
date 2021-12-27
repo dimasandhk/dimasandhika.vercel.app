@@ -2,8 +2,10 @@
 	<div class="github container">
 		<div class="project">
 			<h1>Github Project</h1>
-			<h3 class="mb-3" v-if="maxPage != 0 && !repos.error">Page: {{ $route.query.page }}</h3>
-			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error">
+			<h3 class="mb-3" v-if="maxPage != 0 && !repos.error && !isLoading">
+				Page: {{ $route.query.page }}
+			</h3>
+			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error && !isLoading">
 				<button
 					type="button"
 					class="btn btn-dark shadow-none"
@@ -23,8 +25,8 @@
 			</div>
 			<h3 v-if="repos.error" class="mt-3">{{ repos.error }}</h3>
 			<div class="row justify-content-center" v-else>
-				<Loading v-if="!repos.length || repos.error" />
-				<ProjectCard v-for="r of repos" :key="r.id" :r="r" />
+				<Loading v-if="!repos.length || repos.error || isLoading" />
+				<ProjectCard v-for="r of repos" :key="r.id" :r="r" v-show="!isLoading" />
 			</div>
 		</div>
 	</div>
@@ -42,10 +44,12 @@ export default {
 	data: () => ({
 		repos: [],
 		totalPage: 0,
-		maxPage: 0
+		maxPage: 0,
+		isLoading: true
 	}),
 	async mounted() {
 		if (!this.$route.query.page) this.$router.push(`${this.$route.path}?page=1`);
+		this.isLoading = true;
 
 		progress.start();
 		const repos = await github.getReposByPage(this.$route.query.page);
@@ -54,6 +58,8 @@ export default {
 		this.maxPage = maxPage;
 		this.repos = repos;
 		progress.done();
+
+		this.isLoading = false;
 	},
 	computed: {
 		noPrevious() {
@@ -77,12 +83,15 @@ export default {
 		$route: {
 			async handler({ query }) {
 				progress.start();
+				this.isLoading = true;
 				const repos = await github.getReposByPage(query.page);
 				const { page: maxPage } = await github.getProfile();
 
 				this.maxPage = maxPage;
 				this.repos = repos;
+
 				progress.done();
+				this.isLoading = false;
 			}
 		}
 	}

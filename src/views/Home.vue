@@ -12,7 +12,7 @@
 			<h1 class="text-center">Get In Touch</h1>
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 mt-3" v-for="data of ContactData" :key="data.name">
-					<a class="btn btn-dark btn-block btn-lg">
+					<a class="btn btn-dark btn-block btn-lg shadow-none" target="_blank" :href="data.link">
 						<i :class="data.className"></i> {{ data.name }}
 					</a>
 				</div>

@@ -1,14 +1,17 @@
 [
 	{
 		"name": "Github",
-		"className": "bi bi-github"
+		"className": "bi bi-github",
+		"link": "https://github.com/dimasandhk"
 	},
 	{
 		"name": "Instagram",
-		"className": "bi bi-instagram"
+		"className": "bi bi-instagram",
+		"link": "https://www.instagram.com/dimas.ngoding/"
 	},
 	{
 		"name": "Email",
-		"className": "bi bi-envelope-fill"
+		"className": "bi bi-envelope-fill",
+		"link": "mailto:dimasandhikadiputra@gmail.com"
 	}
 ]
