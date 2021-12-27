@@ -2,6 +2,7 @@
 	<div class="github container">
 		<div class="project">
 			<h1>Github Project</h1>
+			<h3 class="mb-3" v-if="maxPage != 0 && !repos.error">Page: {{ $route.query.page }}</h3>
 			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error">
 				<button
 					type="button"
