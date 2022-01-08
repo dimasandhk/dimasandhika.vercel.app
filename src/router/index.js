@@ -11,20 +11,12 @@ const routes = [
 		path: "/project",
 		name: "Github Projects",
 		component: () => import("../views/Project.vue")
-	}
-	// {
-	// 	path: "/github",
-	// 	name: "Github Profile",
-	// 	component: () => import("../views/Github.vue")
-	// }
-	// {
-	//   path: '/about',
-	//   name: 'About',
-	//   // route level code-splitting
-	//   // this generates a separate chunk (about.[hash].js) for this route
-	//   // which is lazy-loaded when the route is visited.
-	//   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-	// }
+	},
+	{
+		path: '/links',
+		name: 'Linktree',
+		component: () => import('../views/Linktree.vue')
+	}	
 ];
 
 const router = createRouter({
