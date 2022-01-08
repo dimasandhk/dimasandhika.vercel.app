@@ -34,6 +34,7 @@ import Contact from "../assets/data/contact.json"; // JSON
 import DescJson from "../assets/data/desc.json";
 import Iframe from "../components/YoutubeIframe.vue"; // Components
 import youtube from "../api/recentUpload"; // APIS
+import progress from "nprogress"; // Library
 
 export default {
 	name: "Home",
@@ -44,10 +45,12 @@ export default {
 		videoIds: []
 	}),
 	async created() {
+		progress.start()
 		const latestVideos = await youtube.getRecentUpload();
 		latestVideos.forEach((snippet) => {
 			this.videoIds.push(`https://www.youtube.com/embed/${snippet.id.videoId}`);
 		});
+		progress.done()
 	}
 };
 </script>
@@ -85,12 +88,12 @@ export default {
 .intro {
 	h1 {
 		// background-image: linear-gradient(120deg, #ff7a00, #ffc900, #f9d371, #ea5c2b, #f14a16, #ff7a00);
-		background-image: linear-gradient(120deg, #7d7d7d, #d3d3d3, #bdbdbd, #9e9e9e, #696969, #7d7d7d);
-		// background-image: linear-gradient(120deg, #696969, #d3d3d3, #7d7d7d, #9e9e9e, #bdbdbd, #7d7d7d);
+		// background-image: linear-gradient(120deg, #7d7d7d, #d3d3d3, #bdbdbd, #9e9e9e, #696969, #7d7d7d);
+		background-image: linear-gradient(120deg, #1a8cb8, #1aa4b8, #1a9cb8, #1a94b8, #1a84b8, #1a8cb8);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 500%;
-		animation: gradient 10s linear infinite;
+		animation: gradient 5s linear infinite;
 	}
 	padding-bottom: 80px;
 	.desc {
