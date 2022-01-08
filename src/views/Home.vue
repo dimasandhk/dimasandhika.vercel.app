@@ -48,7 +48,25 @@ export default {
 	@include styledButton();
 }
 
+@keyframes gradient {
+	from {
+		background-position: 0;
+	}
+	to {
+		background-position: 500%;
+	}
+}
+
 .intro {
+	h1 {
+		// background-image: linear-gradient(120deg, #ff7a00, #ffc900, #f9d371, #ea5c2b, #f14a16, #ff7a00);
+		background-image: linear-gradient(120deg, #7d7d7d, #d3d3d3, #bdbdbd, #9e9e9e, #696969, #7d7d7d);
+		// background-image: linear-gradient(120deg, #696969, #d3d3d3, #7d7d7d, #9e9e9e, #bdbdbd, #7d7d7d);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%;
+		animation: gradient 10s linear infinite;
+	}
 	padding-bottom: 80px;
 	.desc {
 		font-size: 20px;
