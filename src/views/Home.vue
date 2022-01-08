@@ -16,24 +16,39 @@
 						<i :class="data.className"></i> {{ data.name }}
 					</a>
 				</div>
-				<Iframe />
+				<Iframe v-if="videoIds.length" :video1="videoIds[0]" :video2="videoIds[1]" />
+				<div class="col-12 col-md-12 col-lg-6 mt-3" v-else v-for="i of 2" :key="i">
+					<div class="rounded wait-response p-5">
+						<div class="spinner-grow text-dark ml-3" v-for="i of 3" :key="i">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import Contact from "../assets/data/contact.json";
+import Contact from "../assets/data/contact.json"; // JSON
 import DescJson from "../assets/data/desc.json";
-import Iframe from "../components/YoutubeIframe.vue";
+import Iframe from "../components/YoutubeIframe.vue"; // Components
+import youtube from "../api/recentUpload"; // APIS
 
 export default {
 	name: "Home",
 	components: { Iframe },
 	data: () => ({
 		ContactData: Contact,
-		Desc: DescJson.desc
-	})
+		Desc: DescJson.desc,
+		videoIds: []
+	}),
+	async created() {
+		const latestVideos = await youtube.getRecentUpload();
+		latestVideos.forEach((snippet) => {
+			this.videoIds.push(`https://www.youtube.com/embed/${snippet.id.videoId}`);
+		});
+	}
 };
 </script>
 
@@ -42,6 +57,16 @@ export default {
 .home {
 	padding-top: 40px;
 	padding-bottom: 50px;
+}
+
+.contact {
+	.wait-response {
+		height: 315px; 
+		width: 100%; 
+		background-color: #121212;
+		animation: gradient 10s linear infinite;
+		border: 1px solid #303030;
+	}
 }
 
 .btn {
