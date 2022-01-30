@@ -11,12 +11,12 @@ const routes = [
 		path: "/project",
 		name: "Github Projects",
 		component: () => import("../views/Project.vue")
-	},
-	{
-		path: '/links',
-		name: 'Linktree',
-		component: () => import('../views/Linktree.vue')
-	}	
+	}
+	// {
+	// 	path: '/links',
+	// 	name: 'Linktree',
+	// 	component: () => import('../views/Linktree.vue')
+	// }
 ];
 
 const router = createRouter({
