@@ -45,12 +45,14 @@ export default {
 		videoIds: []
 	}),
 	async created() {
-		progress.start()
+		progress.start();
+
 		const latestVideos = await youtube.getRecentUpload();
 		latestVideos.forEach((snippet) => {
 			this.videoIds.push(`https://www.youtube.com/embed/${snippet.id.videoId}`);
 		});
-		progress.done()
+
+		progress.done();
 	}
 };
 </script>
@@ -64,8 +66,8 @@ export default {
 
 .contact {
 	.wait-response {
-		height: 315px; 
-		width: 100%; 
+		height: 315px;
+		width: 100%;
 		background-color: #121212;
 		animation: gradient 10s linear infinite;
 		border: 1px solid #303030;
