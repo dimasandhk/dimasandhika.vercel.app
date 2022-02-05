@@ -26,6 +26,13 @@
 						to="/project?page=1"
 						>Project</router-link
 					>
+					<router-link
+						class="nav-link"
+						data-toggle="collapse"
+						data-target=".navbar-collapse.show"
+						to="/credentials"
+						>Credentials</router-link
+					>
 				</div>
 			</div>
 		</div>

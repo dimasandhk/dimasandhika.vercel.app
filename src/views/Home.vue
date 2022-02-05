@@ -32,8 +32,11 @@
 <script>
 import Contact from "../assets/data/contact.json"; // JSON
 import DescJson from "../assets/data/desc.json";
+
 import Iframe from "../components/YoutubeIframe.vue"; // Components
+
 import youtube from "../api/recentUpload"; // APIS
+
 import progress from "nprogress"; // Library
 
 export default {
@@ -114,6 +117,11 @@ export default {
 		}
 		.desc {
 			font-size: 16px;
+		}
+	}
+	.contact {
+		h1 {
+			font-size: 36px;
 		}
 	}
 }

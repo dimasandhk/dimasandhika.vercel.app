@@ -9,8 +9,8 @@ const requiredProps = [
 	"startDate",
 	"endDate",
 	"current",
-	"url",
-	"attachmentUrl"
+	"url"
+	// "attachmentUrl"
 ];
 
 export default class {

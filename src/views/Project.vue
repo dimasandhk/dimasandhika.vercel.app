@@ -108,4 +108,12 @@ export default {
 	padding-top: 40px;
 	padding-bottom: 50px;
 }
+
+@media only screen and (max-width: 768px) {
+	.project {
+		h1 {
+			font-size: 36px;
+		}
+	}
+}
 </style>
