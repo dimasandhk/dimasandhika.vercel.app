@@ -114,6 +114,9 @@ export default {
 		h1 {
 			font-size: 36px;
 		}
+		h3 {
+			font-size: 24px;
+		}
 	}
 }
 </style>

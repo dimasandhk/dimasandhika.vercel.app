@@ -9,7 +9,8 @@ const requiredProps = [
 	"startDate",
 	"endDate",
 	"current",
-	"url"
+	"url",
+	"organizationId"
 	// "attachmentUrl"
 ];
 

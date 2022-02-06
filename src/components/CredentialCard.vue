@@ -7,11 +7,12 @@
 				</div>
 				<div class="col-9 col-md-9 col-lg-10 info-col">
 					<a :href="data.url" target="_blank"
-						><h3>{{ data.title }}</h3></a
-					>
+						><h3>{{ data.title }} <i class="bi bi-award-fill text-muted"></i></h3
+					></a>
 					<h5 class="text-muted">
 						{{ data.organizationName }} | {{ formatDate(data.startDate, data.endDate) }}
 					</h5>
+					<h5 class="text-muted">Organization Id: {{ data.organizationId }}</h5>
 				</div>
 			</div>
 		</div>

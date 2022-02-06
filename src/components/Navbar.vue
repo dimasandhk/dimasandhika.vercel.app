@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container">
-			<router-link class="navbar-brand" to="/">@dimasandhk</router-link>
+			<router-link class="navbar-brand" to="/"> @dimasandhk </router-link>
 			<button
 				class="navbar-toggler"
 				type="button"
