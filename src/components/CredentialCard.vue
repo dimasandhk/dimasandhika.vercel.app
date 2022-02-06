@@ -3,16 +3,18 @@
 		<div class="credentials-card rounded">
 			<div class="row">
 				<div class="col-3 col-md-3 col-lg-2">
-					<img :src="data.organizationLogo" class="rounded" />
+					<img :src="data.organizationLogo" class="rounded" alt="Organization Logo" />
 				</div>
 				<div class="col-9 col-md-9 col-lg-10 info-col">
 					<a :href="data.url" target="_blank"
 						><h3>{{ data.title }} <i class="bi bi-award-fill text-muted"></i></h3
 					></a>
 					<h5 class="text-muted">
-						{{ data.organizationName }} | {{ formatDate(data.startDate, data.endDate) }}
+						{{ formatDate(data.startDate, data.endDate) }}
 					</h5>
-					<h5 class="text-muted">Organization Id: {{ data.organizationId }}</h5>
+					<h5 class="text-muted">
+						Organization: {{ data.organizationName }} [{{ data.organizationId }}]
+					</h5>
 				</div>
 			</div>
 		</div>
@@ -68,7 +70,7 @@ export default {
 	.credentials-card {
 		.info-col {
 			h3 {
-				font-size: 20px;
+				font-size: 16px;
 			}
 			h5 {
 				font-size: 12px;

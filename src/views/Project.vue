@@ -2,9 +2,9 @@
 	<div class="github container">
 		<div class="project">
 			<h1>Github Project</h1>
-			<h3 class="mb-3" v-if="maxPage != 0 && !repos.error && !isLoading">
+			<h5 class="mb-3" v-if="maxPage != 0 && !repos.error && !isLoading">
 				Page: {{ $route.query.page }}
-			</h3>
+			</h5>
 			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error && !isLoading">
 				<button
 					type="button"
@@ -112,10 +112,7 @@ export default {
 @media only screen and (max-width: 768px) {
 	.project {
 		h1 {
-			font-size: 36px;
-		}
-		h3 {
-			font-size: 24px;
+			font-size: 34px;
 		}
 	}
 }

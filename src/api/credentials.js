@@ -1,5 +1,5 @@
 import axios from "axios";
-import _ from "lodash-es";
+import { pick } from "lodash-es";
 const endpoint = "https://dimasandhk.showwcase.com/api/user/dimasandhk";
 
 const requiredProps = [
@@ -20,7 +20,7 @@ export default class {
 		const data = await response.data;
 
 		const credentials = [];
-		data.forEach((prop) => credentials.push(_.pick(prop, requiredProps)));
+		data.forEach((prop) => credentials.push(pick(prop, requiredProps)));
 		return credentials;
 	}
 }
