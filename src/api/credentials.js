@@ -1,6 +1,6 @@
 import axios from "axios";
 import { pick } from "lodash-es";
-const endpoint = "https://dimasandhk.showwcase.com/api/user/dimasandhk";
+const endpoint = "https://cache.showwcase.com/user/dimasandhk";
 
 const requiredProps = [
 	"title",
