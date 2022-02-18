@@ -3,7 +3,18 @@
 		<div class="credentials-card rounded">
 			<div class="row">
 				<div class="col-3 col-md-3 col-lg-2">
-					<img :src="data.organizationLogo" class="rounded" alt="Organization Logo" />
+					<img
+						:src="data.organizationLogo"
+						class="rounded"
+						alt="Organization Logo"
+						v-if="!data.organizationLogo.includes('company_default')"
+					/>
+					<img
+						:src="getOrganizationLogo(data.organizationName)"
+						alt="Organization Logo"
+						class="rounded"
+						v-else
+					/>
 				</div>
 				<div class="col-9 col-md-9 col-lg-10 info-col">
 					<a :href="data.url" target="_blank"
@@ -23,6 +34,8 @@
 
 <script>
 import monthNames from "../assets/data/monthNames.json";
+import organizationName from "../assets/data/organizationLogo.json";
+
 export default {
 	props: {
 		data: {
@@ -39,6 +52,9 @@ export default {
 			const duemonth = this.formatMonth(duedate);
 			const due = duedate == date ? "No Expiration" : `${duemonth} ${duedate.split("-")[0]}`;
 			return `${month} ${date.split("-")[0]} - ${due}`;
+		},
+		getOrganizationLogo(name) {
+			return organizationName[name];
 		}
 	}
 };
