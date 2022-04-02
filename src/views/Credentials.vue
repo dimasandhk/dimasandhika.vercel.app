@@ -1,10 +1,16 @@
 <template>
 	<div class="credentials container">
-		<h1>Credentials</h1>
+		<h1 data-aos="fade-right">Credentials</h1>
 		<div class="row justify-content-center mt-4">
 			<Loading v-if="!credentials.length" />
-			<CredentialCard v-for="data of credentials" :data="data" :key="data.title" v-else />
-			<div class="col-12 col-md-12 col-lg-7 mt-3" v-show="credentials.length">
+			<CredentialCard
+				v-for="data of credentials"
+				:data="data"
+				:key="data.title"
+				v-else
+				data-aos="fade-up"
+			/>
+			<div class="col-12 col-md-12 col-lg-7 mt-3" v-if="credentials.length" data-aos="fade-up">
 				<a :href="driveHref" class="btn btn-dark btn-block btn-lg shadow-none" target="_blank">
 					Others...
 				</a>

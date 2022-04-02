@@ -1,18 +1,27 @@
 <template>
 	<div class="home container">
 		<div class="intro">
-			<h1>Dimas Andhika</h1>
+			<h1 data-aos="fade-right">Dimas Andhika</h1>
 			<div class="row">
 				<div class="col-12 col-md-10 col-lg-8">
-					<p class="desc">{{ Desc }}</p>
+					<p class="desc" data-aos="fade-right">{{ Desc }}</p>
 				</div>
 			</div>
 		</div>
 		<div class="contact">
-			<h1 class="text-center">Get In Touch</h1>
+			<h1 class="text-center" data-aos="fade-up">Get In Touch</h1>
 			<div class="row justify-content-center">
-				<div class="col-12 col-md-6 col-lg-4 mt-3" v-for="data of ContactData" :key="data.name">
-					<a class="btn btn-dark btn-block btn-lg shadow-none" target="_blank" :href="data.link">
+				<div
+					class="col-12 col-md-6 col-lg-4 mt-3"
+					v-for="(data, i) of ContactData"
+					:key="data.name"
+				>
+					<a
+						class="btn btn-dark btn-block btn-lg shadow-none"
+						:data-aos="i == 1 ? 'zoom-in' : i == 0 ? 'fade-right' : 'fade-left'"
+						target="_blank"
+						:href="data.link"
+					>
 						<i :class="data.className"></i> {{ data.name }}
 					</a>
 				</div>

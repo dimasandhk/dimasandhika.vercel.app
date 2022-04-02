@@ -1,11 +1,16 @@
 <template>
 	<div class="github container">
 		<div class="project">
-			<h1>Github Project</h1>
-			<h5 class="mb-3" v-if="maxPage != 0 && !repos.error && !isLoading">
+			<h1 data-aos="fade-right">Github Project</h1>
+			<h5 class="mb-3" v-if="maxPage != 0 && !repos.error && !isLoading" data-aos="fade-right">
 				Page: {{ $route.query.page }}
 			</h5>
-			<div class="btn-group" role="group" v-if="maxPage != 0 && !repos.error && !isLoading">
+			<div
+				class="btn-group"
+				role="group"
+				v-if="maxPage != 0 && !repos.error && !isLoading"
+				data-aos="fade-right"
+			>
 				<button
 					type="button"
 					class="btn btn-dark shadow-none"
@@ -26,7 +31,14 @@
 			<h3 v-if="repos.error" class="mt-3">{{ repos.error }}</h3>
 			<div class="row justify-content-center" v-else>
 				<Loading v-if="!repos.length || repos.error || isLoading" />
-				<ProjectCard v-for="r of repos" :key="r.id" :r="r" v-show="!isLoading" />
+				<ProjectCard
+					v-for="(r, i) of repos"
+					:key="r.id"
+					:r="r"
+					v-show="!isLoading"
+					:data-aos="i % 2 == 0 ? 'fade-right' : 'fade-left'"
+					data-aos-duration="1100"
+				/>
 			</div>
 		</div>
 	</div>
