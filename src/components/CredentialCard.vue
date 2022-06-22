@@ -21,7 +21,7 @@
 						><h3>{{ data.title }} <i class="bi bi-award-fill text-muted"></i></h3
 					></a>
 					<h5 class="text-muted">
-						{{ formatDate(data.startDate, data.endDate) }}
+						{{ formatDate(data.startDate, data.endDate, data.current) }}
 					</h5>
 					<h5 class="text-muted">
 						Organization: {{ data.organizationName }} [{{ data.organizationId }}]
@@ -47,10 +47,11 @@ export default {
 		formatMonth(date) {
 			return monthNames[date.split("-")[1] - 1];
 		},
-		formatDate(date, duedate) {
+		formatDate(date, duedate, curr) {
 			const month = this.formatMonth(date);
 			const duemonth = this.formatMonth(duedate);
-			const due = duedate == date ? "No Expiration" : `${duemonth} ${duedate.split("-")[0]}`;
+			const due =
+				duedate == date || curr ? "No Expiration" : `${duemonth} ${duedate.split("-")[0]}`;
 			return `${month} ${date.split("-")[0]} - ${due}`;
 		},
 		getOrganizationLogo(name) {
