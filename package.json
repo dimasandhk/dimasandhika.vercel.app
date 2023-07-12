@@ -1,51 +1,33 @@
 {
-  "name": "dimasandhika",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "aos": "^2.3.4",
-    "axios": "^1.4.0",
-    "core-js": "^3.31.1",
-    "i": "^0.3.7",
-    "lodash-es": "^4.17.21",
-    "nprogress": "^0.2.0",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.8",
-    "@vue/cli-plugin-eslint": "~5.0.8",
-    "@vue/cli-plugin-router": "~5.0.8",
-    "@vue/cli-service": "~5.0.8",
-    "@vue/compiler-sfc": "^3.3.4",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.44.0",
-    "eslint-plugin-vue": "^9.15.1",
-    "node-sass": "^9.0.0",
-    "sass-loader": "^13.3.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+	"name": "dimasandhika",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint"
+	},
+	"dependencies": {
+		"aos": "^2.3.4",
+		"axios": "^0.24.0",
+		"core-js": "^3.31.1",
+		"i": "^0.3.7",
+		"lodash-es": "^4.17.21",
+		"nprogress": "^0.2.0",
+		"vue": "^3.3.4",
+		"vue-router": "^4.2.4"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~5.0.8",
+		"@vue/cli-plugin-router": "~5.0.8",
+		"@vue/cli-service": "~5.0.8",
+		"@vue/compiler-sfc": "^3.3.4",
+		"node-sass": "^9.0.0",
+		"sass-loader": "^13.3.2"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	]
 }
