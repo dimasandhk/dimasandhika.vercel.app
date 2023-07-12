@@ -4,7 +4,7 @@
 			<h1 data-aos="fade-right">Dimas Andhika</h1>
 			<div class="row">
 				<div class="col-12 col-md-10 col-lg-8">
-					<p class="desc" data-aos="fade-right">{{ Desc }}</p>
+					<p class="desc" data-aos="fade-right">{{ autoDesc() }}</p>
 				</div>
 			</div>
 		</div>
@@ -40,7 +40,6 @@
 
 <script>
 import Contact from "../assets/data/contact.json"; // JSON
-import DescJson from "../assets/data/desc.json";
 
 import Iframe from "../components/YoutubeIframe.vue"; // Components
 
@@ -53,7 +52,6 @@ export default {
 	components: { Iframe },
 	data: () => ({
 		ContactData: Contact,
-		Desc: DescJson.desc,
 		videoIds: []
 	}),
 	async created() {
@@ -65,6 +63,15 @@ export default {
 		});
 
 		progress.done();
+	},
+	methods: {
+		autoDesc() {
+			const year = [2006, new Date().getFullYear()];
+			const desc = `Hi! I am Dimas Andhika, I am a ${
+				year[1] - year[0]
+			} year old high school student who is interested and has a hobby in programming. Highly motivated to continue education and work in the field of software development. Check my project on Github to see what I've learned so far!`;
+			return desc;
+		}
 	}
 };
 </script>
