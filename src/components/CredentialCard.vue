@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-3 col-md-3 col-lg-2">
 					<img
-						:src="data.organizationLogo"
+						:src="data.company.logoUrl"
 						class="rounded"
 						alt="Organization Logo"
 						v-if="!data.organizationLogo.includes('company_default')"

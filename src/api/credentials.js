@@ -6,6 +6,7 @@ const requiredProps = [
 	"title",
 	"organizationName",
 	"organizationLogo",
+	"company",
 	"startDate",
 	"endDate",
 	"current",
@@ -21,6 +22,7 @@ export default class {
 
 		const credentials = [];
 		data.forEach((prop) => credentials.push(pick(prop, requiredProps)));
+		console.log(credentials);
 		return credentials;
 	}
 }
